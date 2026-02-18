@@ -73,8 +73,15 @@ app.post("/webhook/ninja", async (req, res) => {
     }
 
     // 2) extrair campos
-    const nameRaw = pickFieldValue(req.body, "Primeiro nome", "firstname");
-    const phoneRaw = pickFieldValue(req.body, "Telefone", "phone");
+console.log("ENTROU NO HANDLER");
+
+const nameRaw = pickFieldValue(req.body, "Primeiro nome", "firstname");
+const phoneRaw = pickFieldValue(req.body, "Telefone", "phone");
+
+console.log("EXTRAIDO:", { nameRaw, phoneRaw });
+
+
+
 
     const name = String(nameRaw || "").trim();
     const phone = toE164BR(phoneRaw);
@@ -96,7 +103,7 @@ app.post("/webhook/ninja", async (req, res) => {
     }
     seen.set(last6, Date.now());
 
-
+console.log("VOU ENVIAR:", url);
 
 
     
