@@ -136,10 +136,15 @@ att,,
 Pregador Manasses
 Levando Avivamento🔥 Trazendo Almas a Cristo ✝️`;
 
-const resp2 = await axios.post(url, null, {
-  params: { phone: digits(phone), message: mensagem }
+console.log("VOU ENVIAR WASCALE:", url, digits(phone));
+
+const resp = await axios.post(url, null, {
+  params: { phone: digits(phone), message: mensagem },
+  timeout: 15000
 });
-console.log("WASCALE RESP:", resp2.status, resp2.data);
+
+console.log("WASCALE OK:", resp.status, resp.data);
+
 
 
 
