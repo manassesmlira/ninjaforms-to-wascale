@@ -94,10 +94,10 @@ console.log("EXTRAIDO:", { nameRaw, phoneRaw });
     const last6 = digits(phone).slice(-6);
 
     // 3) dedupe: se chegar igual (últimos 6) de novo, ignora
-    if (seen.has(last6)) {
-      return res.json({ ok: true, deduped: true, contact: { name, phone, last6 } });
-    }
-    seen.set(last6, Date.now());
+    //if (seen.has(last6)) {
+//      return res.json({ ok: true, deduped: true, contact: { name, phone, last6 } });
+  //  }
+    //seen.set(last6, Date.now());
 
 
 
@@ -146,6 +146,9 @@ const resp = await axios.post(
   { phone: digits(phone), message: mensagem },
   {timeout: 15000}
 );
+
+console.log("WASCALE RESP:", resp.status, resp.data);
+
 
 console.log("WASCALE OK:", resp.status, resp.data);
 
