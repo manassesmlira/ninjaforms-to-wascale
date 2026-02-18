@@ -99,7 +99,7 @@ console.log("EXTRAIDO:", { nameRaw, phoneRaw });
     }
     seen.set(last6, Date.now());
 
-console.log("VOU ENVIAR:", url);
+
 
 
     
@@ -120,7 +120,7 @@ console.log("VOU ENVIAR:", url);
     };
 
 const url = `${WASCALE_BASE}${WASCALE_SEND_ENDPOINT}/${WASCALE_TOKEN}`;
-
+console.log("VOU ENVIAR:", url);
 const mensagem = `Olá! 👋
 Graça e Paz ${name.split(" ")[0]} 🕊️
 
