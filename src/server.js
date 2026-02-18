@@ -96,6 +96,10 @@ app.post("/webhook/ninja", async (req, res) => {
     }
     seen.set(last6, Date.now());
 
+
+
+
+    
     // 4) se você ainda não definiu endpoint do Wascale, só confirma recebimento
     if (!WASCALE_SEND_ENDPOINT || !WASCALE_TOKEN) {
       return res.json({
@@ -132,12 +136,12 @@ att,,
 Pregador Manasses
 Levando Avivamento🔥 Trazendo Almas a Cristo ✝️`;
 
-const resp = await axios.post(url, null, {
-  params: {
-    phone: digits(phone),
-    message: mensagem
-  }
+const resp2 = await axios.post(url, null, {
+  params: { phone: digits(phone), message: mensagem }
 });
+console.log("WASCALE RESP:", resp2.status, resp2.data);
+
+
 
 
 // ===== ENVIAR CONTATO (vCard) =====
