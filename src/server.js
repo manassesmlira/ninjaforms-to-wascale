@@ -141,10 +141,11 @@ Levando Avivamento🔥 Trazendo Almas a Cristo ✝️`;
 
 console.log("VOU ENVIAR WASCALE:", url, digits(phone));
 
-const resp = await axios.post(url, null, {
-  params: { phone: digits(phone), message: mensagem },
-  timeout: 15000
-});
+const resp = await axios.post(
+  url,
+  { phone: digits(phone), message: mensagem },
+  {timeout: 15000}
+);
 
 console.log("WASCALE OK:", resp.status, resp.data);
 
