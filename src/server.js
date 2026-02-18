@@ -167,6 +167,8 @@ await axios.post(urlDoc, {
 
     return res.json({ ok: true, sent: true, contact: { name, phone, last6 }, wascale: resp.data });
   } catch (err) {
+    console.log("WASCALE ERR:", err?.response?.status, err?.response?.data || err.message);
+
     const details = err?.response?.data || err.message;
     return res.status(500).json({ ok: false, error: details });
   }
