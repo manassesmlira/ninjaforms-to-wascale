@@ -132,10 +132,13 @@ att,,
 Pregador Manasses
 Levando Avivamento🔥 Trazendo Almas a Cristo ✝️`;
 
-const resp = await axios.post(url, {
-  phone: digits(phone),
-  message: mensagem
+const resp = await axios.post(url, null, {
+  params: {
+    phone: digits(phone),
+    message: mensagem
+  }
 });
+
 
 // ===== ENVIAR CONTATO (vCard) =====
 await new Promise(r => setTimeout(r, 2000));
