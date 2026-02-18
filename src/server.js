@@ -58,11 +58,7 @@ setInterval(cleanupSeen, 1000 * 60 * 30).unref();
 
 app.get("/health", (_, res) => res.json({ ok: true }));
 
-app.post("/webhook/ninja", async (req, res) => {
-  console.log("CHEGOU WEBHOOK /webhook/ninja", new Date().toISOString());
-  console.log(JSON.stringify(req.body));
-  
-});
+
 
 app.post("/webhook/ninja", async (req, res) => {
   try {
