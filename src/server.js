@@ -170,11 +170,14 @@ const base64Vcard = Buffer.from(vcard).toString("base64");
 
 const urlDoc = `${WASCALE_BASE}/api/enviar-documento/${WASCALE_TOKEN}`;
 
-await axios.post(urlDoc, {
-  phone: digits(phone),
-  base64: `data:text/vcard;base64,${base64Vcard}`,
-  name: "Pregador-Manasses.vcf"
-});
+const respDoc = await axios.post(
+  urlDoc,
+  { phone: digits(phone), base64: `data:text/vcard;base64,${base64Vcard}`, name: "Pregador-Manasses.vcf" },
+  { timeout: 15000 }
+);
+
+console.log("WASCALE DOC:", respDoc.status, respDoc.data);
+
 
 
     return res.json({ ok: true, sent: true, contact: { name, phone, last6 }, wascale: resp.data });
